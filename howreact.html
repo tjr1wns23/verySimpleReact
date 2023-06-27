@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <title>howReact</title>
+</head>
+<body>
+  <div id="react-container"></div>
+  <script>
+    var foods = ["치킨", "피자", "햄버거", "짜장면", "김밥"]
+ 
+    /*
+      React.createElement
+      첫번째 인자 : 요소의 타입
+      두번째 인자 : 요소의 속성
+      세번째 인자 : 여는 태드와 닫는 태그 사이에 들어가야 할 자식(노드)
+    */
+    const foodList = React.createElement(
+        "ul",
+        { 
+          className: "foods"
+        },
+        foods.map((food, i) =>
+            React.createElement("li", { key: i }, food)
+        )
+    )
+      
+    ReactDOM.render(
+        foodList,
+        document.getElementById('react-container')
+    )
+  </script>
+</body>
+</html>
